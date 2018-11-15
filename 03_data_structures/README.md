@@ -394,9 +394,5 @@ Similarly to list and basic data types there is also a data type `*hash` which a
 
 ---
 
-<table>
-    <tr>
-        <td>[&larr; Go Back to: Variables and data types](../02_variables_data_types/)</td>
-        <td>[Next: Flow control &rarr;](../04_flow_control/)</td>
-    </tr>
-</table>
+| [&larr; Go Back to: Variables and data types](../02_variables_data_types/) | [Next: Flow control &rarr;](../04_flow_control/) |
+| --- | --- |
