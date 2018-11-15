@@ -41,7 +41,10 @@ A good example for using the *hard* operators may be checking for `NOTHING`:
 - `(NOTHING == 0)` is True
 - `(NOTHING === 0)` is False
 
-If you need to check a value against `NOTHING` and distinguish it from zero, you should always use the *hard* operators.
+If you need to check a value against `NOTHING` and distinguish it from zero, you should always use the *hard* operators or [exists operator](https://docs.qore.org/current/lang/html/operators.html#exists) like
+- `(exists 0)` is True
+- `(exists False)` is True
+- `(exists NOTHING)` is False.
 
 #### Regular expression operators
 
