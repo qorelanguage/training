@@ -149,9 +149,5 @@ These operators can be used in a `case` statement:
 
 ---
 
-<table>
-    <tr>
-        <td>[&larr; Go Back to: Data structures](../03_data_structures/)</td>
-        <td>[Next: Input, output &rarr;](../05_input_output/)</td>
-    </tr>
-</table>
+| [&larr; Go Back to: Data structures](../03_data_structures/) | [Next: Input, output &rarr;](../05_input_output/) |
+| --- | --- |

@@ -76,9 +76,5 @@ printf("Hello world!");
 
 ---
 
-<table>
-    <tr>
-        <td>[&larr; Go Back to: Introduction](../)</td>
-        <td>[Next: Variables and data types &rarr;](../02_variables_data_types/)</td>
-    </tr>
-</table>
+| [&larr; Go Back to: Introduction](../) | [Next: Variables and data types &rarr;](../02_variables_data_types/) |
+| --- | --- |

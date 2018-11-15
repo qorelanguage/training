@@ -197,9 +197,5 @@ can be very confusing. This example script only does it to illustrate how block 
 
 ---
 
-<table>
-    <tr>
-        <td>[&larr; Go Back to: Parse directives](../01_parse_directives/)</td>
-        <td>[Next: Data structures &rarr;](../03_data_structures)</td>
-    </tr>
-</table>
+| [&larr; Go Back to: Parse directives](../01_parse_directives/) | [Next: Data structures &rarr;](../03_data_structures) |
+| --- | --- |
