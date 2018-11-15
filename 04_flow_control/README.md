@@ -34,7 +34,7 @@ provides *soft* and *hard* operators and it's good to be aware of the difference
 #### *hard* operators
 
 - do not perform any implicit type conversions and if the types are different the result is always False - i.e.
-  `(1 == "1")` is False
+  `(1 === "1")` is False
 - e.g. `===`, `!==`
 
 A good example for using the *hard* operators may be checking for `NOTHING`:
