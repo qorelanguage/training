@@ -41,7 +41,8 @@ A good example for using the *hard* operators may be checking for `NOTHING`:
 - `(NOTHING == 0)` is True
 - `(NOTHING === 0)` is False
 
-If you need to check a value against `NOTHING` and distinguish it from zero, you should always use the *hard* operators or [exists operator](https://docs.qore.org/current/lang/html/operators.html#exists) like
+If you need to check a value against `NOTHING` and distinguish it from zero, you should always use the *hard* operators
+or [exists operator](https://docs.qore.org/current/lang/html/operators.html#exists) like
 - `(exists 0)` is True
 - `(exists False)` is True
 - `(exists NOTHING)` is False.
@@ -100,7 +101,8 @@ switch (value) {
 ```
 
 The switch-expression is compared against individual case-expression until one of them is evaluated to True. In this
-case all code up to a break statement is executed, at which time execution flow exits the switch statement. Unless relational operators are used, the comparisons are *hard* comparisons (no implicit type conversions are done). When
+case all code up to a break statement is executed, at which time execution flow exits the switch statement. Unless
+relational operators are used, the comparisons are *hard* comparisons (no implicit type conversions are done). When
 relational operators are used, the operators are executed exactly as they are in the rest of Qore, so type conversions
 may be performed if nesessary.
 
@@ -134,21 +136,123 @@ These operators can be used in a `case` statement:
 
 ## `while` loop
 
+While statements in Qore are similar to while statements in Perl, C and Java. They are used to loop while a given
+condition is evaluated to True.
+
+```
+int a = 1;
+while (a < 10) {
+    a++;
+}
+```
+
+## `do` ... `while` loop
+
+This loop is similar to do-while statement in C. The `do` ... `while` statements guarantee at least one iteration and
+then loop until a given expression evaluates to False. Therefore it's like a `while` loop except that the condition is
+checked at the end of the loop instead of the beginning.
+
 ## `for` loop
+
+The Qore for statement is most similar to the for statement in C and Java. This statement is ideal for loops that should
+execute a given number of times, then complete.
+
+```
+for (int i = 0; i < 10; i++) {
+    printf("%d\n", i);
+}
+```
+
+In general there are three statements in the parentheses after the `for` keyword:
+- initial expression which is executed only once at the start of a for loop
+    - e.g. `int i = 0;` initializes the loop variable to zero
+- test expression which is executed at the start of each iteration and if it's evaluated to False, the loop ends
+    - e.g. `i < 10` checks whether the loop variable is still less than 10
+- the iterator expression which is executed at the end of every iteration
+    - e.g. `i++` increments the value of the loop variable
 
 ## `foreach` loop
 
+The Qore foreach statement is similar to the foreach array iterator statement in Perl. It loops through the given
+expression and executes the loop for each *element* once.
+
+```
+list words = ("lorem", "ipsum", "dolor");
+
+foreach string w in (words) {
+    printf("%s\n", w);
+}
+```
+
+Depending on the expression in the parentheses, the `foreach` loop will work differently:
+- if the expression is a list like in the example above, the loop iterates through its items
+- if the expression evaluates to an object inheriting the `AbstractIterator` class, the foreach operator iterates
+the object by calling `AbstractIterator::next()`, and the values assigned to the iterator variable on each iteration are
+the container values returned by `AbstractIterator::getValue()`
+- if the expression evaluates to `NOTHING`, then the loop is not executed
+- otherwise the variable will be assigned the value of the expression evaluation and the statement will only execute
+once
+
+An example of an object inheriting the `AbstractIterator` class is a hash:
+
+```
+hash h = {
+    "a": 1,
+    "b": 2
+};
+
+foreach hash iter_hash in (h.pairIterator()) {
+    printf("%s = %y\n", iter_hash.key, iter_hash.value);
+}
+```
+
 ## `break` statement
+
+Exits immediately from a loop statement or a switch block. We could see the latter case in the section about
+the `switch` statement above and here is an example of `break` usage in loops:
+
+```
+list words = ("lorem", "ipsum", "dolor", "END", "sit", "amet");
+
+# this loop will print all words until it finds "END", then the loop will end
+foreach string w in (words) {
+    if (w == "END") {
+        break;
+    }
+
+    printf("%s\n", w);
+}
+```
 
 ## `continue` statement
 
-## `throw` statement
+Skips the rest of the current loop iteration and jumps right to evaluation of the iteration expression.
+
+```
+int count = 0;
+list words = ("lorem", "ipsum", "dolor", "END", "sit", "END", "amet");
+
+# this loop will print and count all words except "END"
+foreach string w in (words) {
+    if (w == "END") {
+        continue;
+    }
+
+    printf("%s\n", w);
+    count++;
+}
+
+printf("There are %d valid words in the list.\n", count);     # count is 5 now
+```
 
 ## `on_exit`, `on_error`, `on_success` statements
 
 
+
+
 # Functions
 
+## `return` statement
 
 ---
 
