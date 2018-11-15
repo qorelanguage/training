@@ -76,5 +76,5 @@ printf("Hello world!");
 
 ---
 
-| [&larr; Go Back to: Introduction](../) | [Next: Variables and data types &rarr;](../02_variables_data_types/) |
+| [&larr; Go Back to: Introduction](../README.md) | [Next: Variables and data types &rarr;](../02_variables_data_types/) |
 | --- | --- |
