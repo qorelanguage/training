@@ -273,6 +273,8 @@ Now whatever happens in the `do_something()` function,  the resource will be cle
 an error during doing *something useful*, the error message will be printed and on the other hand if there is no error,
 the success message will be printed.
 
+This is related to exceptions which are explained in more detail in [chapter 8](../08_exceptions/).
+
 # Functions
 
 A function in Qore programming language is declared by using the keyword `sub` (for subroutine) which can be preceded by
