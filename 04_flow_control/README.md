@@ -247,12 +247,59 @@ printf("There are %d valid words in the list.\n", count);     # count is 5 now
 
 ## `on_exit`, `on_error`, `on_success` statements
 
+- `on_exit` - precedes a statement or a block that is executed when the current lexical scope (e.g. a function or
+a block) ends either successfully or with an error
+- `on_error` - precedes a statement or a block that is executed when exception is thrown in the current lexical scope
+- `on_success` - precedes a statement or a block that is executed when the current lexical scope ends successfully
 
+```
+sub do_something() {
+    SomeClass resource = get_some_resource();
+    on_exit {
+        resource.cleanup();
+    }
+    on_error {
+        printf("Error. Something went wrong.\n");
+    }
+    on_success {
+        printf("Success!\n");
+    }
 
+    # now do something useful
+}
+```
+
+Now whatever happens in the `do_something()` function,  the resource will be cleaned up. On top of that, if there is
+an error during doing *something useful*, the error message will be printed and on the other hand if there is no error,
+the success message will be printed.
 
 # Functions
 
-## `return` statement
+A function in Qore programming language is declared by using the keyword `sub` (for subroutine) which can be preceded by
+a return type declaration if the function is supposed to return something. If the function won't return anything, there
+is no declaration of the type (unlike e.g. `void` in C). Function parameters are specified in the parentheses after
+the function name.
+
+```
+# this function accepts one string parameter and doesn't return anything
+sub do_something(string a) {
+    # here is the code defining the function
+}
+```
+
+```
+# this function accepts no parameters and returns an integer
+int sub do_something_else() {
+    # here is the code defining the function
+
+    int res;
+
+    # do something to determine the result
+
+    # this is how we return the result
+    return res;
+}
+```
 
 ---
 
