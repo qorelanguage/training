@@ -82,5 +82,5 @@ PARSE-EXCEPTION: function 'path_exists()' cannot be found
 
 ---
 
-| [&larr; Go Back to: Introduction](../README.md) | [Next: Parse directives &rarr;](01_parse_directives/) |
+| [&larr; Go Back to: Introduction](../README.md) | [Next: Parse directives &rarr;](../01_parse_directives/) |
 | --- | --- |
