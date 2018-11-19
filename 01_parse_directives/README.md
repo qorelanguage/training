@@ -53,6 +53,33 @@ introduced to keep existing code working.
 For more information about parse directives please see the
 [documentation](https://docs.qore.org/current/lang/html/parse_directives.html).
 
+## Parse directives on CLI
+
+In the [previous chapter](../00_CLI/) you could read about how to use Qore on command line. Here let's just add that can also specify
+parse directives while working via CLI.
+
+Calling one of the examples from the previous chapter with the recommended parse directives could look like this:
+
+```
+$ qore --new-style --strict-args --require-types --enable-all-warnings -e 'int num = 0; while (num < 10) { printf("%d\n", num); num += 2;}'
+0
+2
+4
+6
+8
+```
+
+or:
+
+```
+$ qore -n --strict-args --require-types --enable-all-warnings -e 'int num = 0; while (num < 10) { printf("%d\n", num); num += 2;}'
+0
+2
+4
+6
+8
+```
+
 # Comments
 
 Comments are not really parse directives per se but it is related to parsing and it's good to mention this early. Qore
@@ -76,5 +103,5 @@ printf("Hello world!");
 
 ---
 
-| [&larr; Go Back to: Introduction](../README.md) | [Next: Variables and data types &rarr;](../02_variables_data_types/) |
+| [&larr; Go Back to: Command line interface](../00_CLI/) | [Next: Variables and data types &rarr;](../02_variables_data_types/) |
 | --- | --- |

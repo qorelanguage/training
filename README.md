@@ -17,9 +17,7 @@ https://docs.qore.org/current/lang/html/index.html
 
 ## Chapters
 
-<!--
-0. [Qore CLI](00_qore_cli)
--->
+0. [Command line interface](00_CLI)
 1. [Parse directives and comments](01_parse_directives)
 2. [Variables and data types](02_variables_data_types)
 4. [Data structures](03_data_structures)
@@ -37,6 +35,5 @@ https://docs.qore.org/current/lang/html/index.html
 
 ---
 
-<!--        | [&larr; Go Back to: ](../) |   -->
-| [Next: Parse directives &rarr;](01_parse_directives/) |
+| [Next: Command line interface &rarr;](00_CLI/) |
 | --- |
