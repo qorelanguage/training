@@ -1,0 +1,50 @@
+%new-style
+%strict-args
+%require-types
+%enable-all-warnings
+
+module People {
+    version = "1.0";
+    desc = "module providing classes representing people for tutorial purposes";
+    author = "Qore Technologies s.r.o.";
+    url = "https://github.com/qorelanguage/training";
+}
+
+public namespace People {
+
+    public class Person {
+        public {
+            string name;
+        }
+
+        constructor(string person_name) {
+            name = person_name;
+        }
+
+        introduce() {
+            printf("Hello, I am %s.\n", name);
+        }
+    }
+
+    public class Employee inherits Person {
+        public {
+            int career_length;
+        }
+
+        constructor(string person_name, int length) : Person(person_name) {
+            career_length = length;
+        }
+
+        constructor(Person p) : Person(p.name) {
+            career_length = 0;
+        }
+
+        int months_working() {
+            return career_length * 12;
+        }
+
+        introduce() {
+            printf("Hello, I am %s and I've been working here for %d years.\n", name, career_length);
+        }
+    }
+}
