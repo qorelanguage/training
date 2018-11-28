@@ -57,7 +57,7 @@ higher-level `catch` block, or to the system default exception handler.
 ```
 try {
     do_something();
-} catch (ex) {
+} catch (hash<ExceptionInfo> ex) {
     # print an error message and pass the exception higher
     printf("Exception with code %s and description %s was thrown.\n", ex.err, ex.desc);
     rethrow;
